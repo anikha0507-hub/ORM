@@ -1,10 +1,9 @@
 # Ex01 Django ORM Web Application
-## Date: 
+## Date: 22-11-2025
 
 ## AIM
 To develop a Django Application to store and retrieve data from a E-Commerce Website Database for Amazon or Flipkart using Object Relational Mapping(ORM).
 
-## ENTITY RELATIONSHIP DIAGRAM
 
 
 
@@ -35,11 +34,31 @@ Apply the migration files of the created app to the database
 Execute Django admin using localhost and create details for 10 entries
 
 ## PROGRAM
+```
+from django.db import models
+from django.contrib import admin
+class product(models.Model):
+    productID=models.CharField(primary_key=True,max_length=7)
+    productname=models.CharField(max_length=30)
+    dept=models.CharField(max_length=20)
+    productbrand=models.CharField(max_length=20)
+    Dateofexpi=models.DateField()
+    Dateofdeli=models.DateField()
+    price=models.IntegerField()
 
+class productAdmin(admin.ModelAdmin):
+    list_display=["productID","productname","dept","productbrand","Dateofexpi","Dateofdeli","price"]
+
+admin.py
+
+from django.contrib import admin
+from .models import product,productAdmin
+admin.site.register(product,productAdmin)
+```
 
 
 ## OUTPUT
-
+![alt text](image.png)
 
 
 ## RESULT
